@@ -1,5 +1,6 @@
 <script>
 	import Card from './Card.svelte';
+	import List from './List.svelte';
 	import { notizen } from './notizen';
 
 	let text = '';
@@ -16,9 +17,9 @@
 
 	<h2 class="text-lg">Notizen</h2>
 
-	<div class="flex flex-col gap-2">
-		{#each $notizen as notiz}
-			<Card text={notiz.titel}></Card>
-		{/each}
-	</div>
+	<List let:notiz>
+		<Card text={notiz.titel}></Card>
+
+		<div slot="leer">Keine Notizen vorhanden</div>
+	</List>
 </div>

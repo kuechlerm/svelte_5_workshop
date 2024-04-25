@@ -36,11 +36,15 @@
 
 ## Test-Setup
 
+TODO
+
 ## Svelte 4 zu Svelte 5
 
 ### Motivation
 
 - Magie vs magisch
+- Signals
+- weiter Design-Einsichten
 
 ### Konzepte
 
@@ -59,13 +63,7 @@
 - global state
   - readable, writable, derived -> $state, $derived, $effect
 
-### Beispiel
+### Code
 
-- src/lib/v4
-- page.svelte als Einstieg
-- Card, Liste, Button, Input
-
---- weiteres
-
-- multiprojekt mit pnpm oder einfach per @lib usw
-- ein paar bessere eslint Regeln?
+- Projekt öffnen
+- erstes Code-Beispiel ist in src/routes/01_component
