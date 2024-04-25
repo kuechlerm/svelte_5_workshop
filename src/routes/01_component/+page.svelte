@@ -10,5 +10,5 @@
 <div>{text}</div>
 <div>{mehr_text}</div>
 <div>
-	<input type="text" bind:value={text} />
+	<input class="border border-black p-1" type="text" bind:value={text} />
 </div>

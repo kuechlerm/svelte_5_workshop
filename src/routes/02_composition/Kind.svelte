@@ -9,6 +9,8 @@
 	}
 </script>
 
-<div on:click role="none">{text}</div>
+<div class="bg-blue-400 p-4">
+	<div class="underline" on:click role="none">{text}</div>
 
-<div><slot /></div>
+	<div><slot /></div>
+</div>
