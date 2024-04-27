@@ -1,10 +1,10 @@
 <script lang="ts">
-	let text = 'init';
-	$: mehr_text = 'MEHR: ' + text;
+	let text = $state('init');
+	let mehr_text = $derived('MEHR: ' + text);
 
-	$: {
+	$effect(() => {
 		console.log(mehr_text);
-	}
+	});
 </script>
 
 <div>{text}</div>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { wert, store } from './state';
+	import { wert, store } from './state.svelte';
 </script>
 
-<div>{$wert}</div>
+<div>{wert}</div>
 
 <button class="cursor-pointer bg-blue-400 p-2" on:click={() => store.mehr()}>
-	{$store}
+	{store.value}
 </button>

@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import Card from './Card.svelte';
 	import List from './List.svelte';
-	import { notizen } from './notizen';
+	import { notizen } from './notizen.svelte';
 
 	let text = '';
 </script>
@@ -17,9 +17,12 @@
 
 	<h2 class="text-lg">Notizen</h2>
 
-	<List let:notiz>
-		<Card text={notiz.titel}></Card>
-
-		<div slot="leer">Keine Notizen vorhanden</div>
+	<List>
+		{#snippet item(notiz)}
+			<Card text={notiz.titel}></Card>
+		{/snippet}
+		{#snippet leer()}
+			Keine Notizen vorhanden
+		{/snippet}
 	</List>
 </div>

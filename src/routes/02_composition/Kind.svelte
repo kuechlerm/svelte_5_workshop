@@ -1,16 +1,27 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
+	import type { Snippet } from 'svelte';
 
-	export let text = 'hallo';
+	let {
+		text = 'hallo',
+		onclick,
+		on_text_leer,
+		children
+	}: {
+		text?: string;
+		onclick: () => void;
+		on_text_leer: () => void;
+		children: Snippet;
+	} = $props();
 
-	$: {
-		if (text === '') dispatch('text_leer');
-	}
+	$effect(() => {
+		if (text === '') on_text_leer();
+	});
 </script>
 
 <div class="bg-blue-400 p-4">
-	<div class="underline" on:click role="none">{text}</div>
+	<div class="underline" {onclick} role="none">{text}</div>
 
-	<div><slot /></div>
+	{#if children}
+		<div>{@render children()}</div>
+	{/if}
 </div>

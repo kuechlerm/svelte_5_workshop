@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { notizen } from './notizen';
+	import type { Snippet } from 'svelte';
+	import { notizen, type Notiz } from './notizen.svelte';
+
+	let { item, leer }: { item: Snippet<[Notiz]>; leer: Snippet } = $props();
 </script>
 
 <div class="flex flex-col gap-2">
-	{#each $notizen as notiz}
-		<slot {notiz} />
+	{#each notizen.notizen as notiz}
+		{@render item(notiz)}
 	{:else}
-		<slot name="leer" />
+		{@render leer()}
 	{/each}
 </div>
